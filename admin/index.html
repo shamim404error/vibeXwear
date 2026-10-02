@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | VibeXwear</title>
+  <link rel="icon" type="image/svg+xml" href="../frontend/assets/images/vibexwear-logo.svg">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="admin-logo-box">
+      <img src="../frontend/assets/images/vibexwear-logo.svg" alt="VibeXwear">
+    </div>
+
+    <nav class="admin-nav-list">
+      <a href="#" class="admin-nav-item active" data-view="dashboard">
+        <span>📊</span>
+        <span>Dashboard</span>
+      </a>
+      <a href="#" class="admin-nav-item" data-view="orders">
+        <span>📦</span>
+        <span>Orders Management</span>
+      </a>
+      <a href="#" class="admin-nav-item" data-view="products">
+        <span>👕</span>
+        <span>Product Catalog</span>
+      </a>
+      <a href="#" class="admin-nav-item" data-view="inventory">
+        <span>🏷️</span>
+        <span>Inventory Matrix</span>
+      </a>
+    </nav>
+
+    <div class="admin-sidebar-footer">
+      <a href="../frontend/index.html" target="_blank" class="admin-nav-item" style="color: var(--accent-lime);">
+        <span>↗</span>
+        <span>View Live Store</span>
+      </a>
+      <div style="font-size: 0.72rem; color: var(--text-dim);">
+        VibeXwear Admin v1.0.0<br>Local Environment
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Workspace -->
+  <main class="admin-main">
+    
+    <!-- Top Header -->
+    <header class="admin-header">
+      <div class="admin-title-wrap">
+        <h1 id="pageHeadingTitle">ADMIN CONSOLE</h1>
+        <p>Real-time order fulfillment, inventory monitoring, and product management.</p>
+      </div>
+
+      <div class="admin-user-profile">
+        <div class="admin-avatar">AD</div>
+        <div>
+          <div style="font-size: 0.85rem; font-weight: 800;">Admin User</div>
+          <div style="font-size: 0.72rem; color: var(--accent-lime);">Super Admin</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- VIEW 1: DASHBOARD OVERVIEW -->
+    <section id="view-dashboard" class="admin-view active">
+      
+      <!-- Metrics Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-title">Total Orders</span>
+          <span class="stat-val" id="metricTotalOrders">0</span>
+          <span class="stat-badge status-confirmed">All Time</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-title">Pending Orders</span>
+          <span class="stat-val" id="metricPendingOrders" style="color: var(--status-pending);">0</span>
+          <span class="stat-badge status-pending">Requires Action</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-title">Confirmed Orders</span>
+          <span class="stat-val" id="metricConfirmedOrders" style="color: var(--status-confirmed);">0</span>
+          <span class="stat-badge status-confirmed">In Queue</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-title">Processing Orders</span>
+          <span class="stat-val" id="metricProcessingOrders" style="color: var(--status-processing);">0</span>
+          <span class="stat-badge status-processing">Packaging</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-title">Delivered Orders</span>
+          <span class="stat-val" id="metricDeliveredOrders" style="color: var(--status-delivered);">0</span>
+          <span class="stat-badge status-delivered">Fulfilled</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-title">Total Products</span>
+          <span class="stat-val" id="metricTotalProducts">0</span>
+          <span class="stat-badge status-confirmed">Active Catalog</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-title">Low Stock Alert</span>
+          <span class="stat-val" id="metricLowStock" style="color: var(--status-cancelled);">0</span>
+          <span class="stat-badge status-cancelled">≤ 8 units</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-title">Total Sales (COD)</span>
+          <span class="stat-val" id="metricTotalSales" style="color: var(--accent-lime);">৳0</span>
+          <span class="stat-badge status-delivered">Gross Revenue</span>
+        </div>
+      </div>
+
+      <!-- Recent Orders Table -->
+      <div class="table-card">
+        <div class="table-header-row">
+          <h3>RECENT CUSTOMER ORDERS</h3>
+          <button class="admin-btn admin-btn-secondary" onclick="adminCtrl.switchView('orders')">
+            View All Orders →
+          </button>
+        </div>
+
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>District</th>
+              <th>Items</th>
+              <th>Total</th>
+              <th>Status Action</th>
+            </tr>
+          </thead>
+          <tbody id="recentOrdersTbody">
+            <!-- Rendered by admin.js -->
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+
+    <!-- VIEW 2: ORDERS MANAGEMENT -->
+    <section id="view-orders" class="admin-view">
+      <div class="table-card">
+        <div class="table-header-row">
+          <div>
+            <h3>ALL ORDERS & FULFILLMENT</h3>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">
+              Manage customer orders, track delivery stages, and update fulfillment statuses.
+            </p>
+          </div>
+
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <input type="text" id="ordersSearchInput" class="admin-input" placeholder="Search Order ID, Name, Phone...">
+            <select id="ordersStatusFilter" class="admin-select">
+              <option value="all">All Statuses</option>
+              <option value="Pending">Pending</option>
+              <option value="Confirmed">Confirmed</option>
+              <option value="Processing">Processing</option>
+              <option value="Shipped">Shipped</option>
+              <option value="Delivered">Delivered</option>
+              <option value="Cancelled">Cancelled</option>
+            </select>
+          </div>
+        </div>
+
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Customer Info</th>
+              <th>Delivery Destination</th>
+              <th>Items Breakdown</th>
+              <th>Total</th>
+              <th>Current Status</th>
+              <th>Update Status</th>
+            </tr>
+          </thead>
+          <tbody id="allOrdersTbody">
+            <!-- Rendered by admin.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- VIEW 3: PRODUCTS MANAGEMENT -->
+    <section id="view-products" class="admin-view">
+      <div class="table-card">
+        <div class="table-header-row">
+          <div>
+            <h3>PRODUCT CATALOG MANAGEMENT</h3>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">
+              Add new streetwear pieces, modify prices, configure discount tags, and manage sizes.
+            </p>
+          </div>
+          <button class="admin-btn admin-btn-primary" onclick="adminCtrl.openAddProductModal()">
+            + ADD NEW PRODUCT
+          </button>
+        </div>
+
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Product Details</th>
+              <th>Price</th>
+              <th>Discount</th>
+              <th>Total Stock</th>
+              <th>Badges</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="productsTbody">
+            <!-- Rendered by admin.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- VIEW 4: INVENTORY MATRIX -->
+    <section id="view-inventory" class="admin-view">
+      <div class="table-card">
+        <div class="table-header-row">
+          <div>
+            <h3>REAL-TIME INVENTORY & STOCK MATRIX</h3>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">
+              Monitor stock levels across individual sizes (S, M, L, XL) and prevent stock-outs.
+            </p>
+          </div>
+        </div>
+
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Product Name</th>
+              <th>Category</th>
+              <th>Size S</th>
+              <th>Size M</th>
+              <th>Size L</th>
+              <th>Size XL</th>
+              <th>Total Units</th>
+              <th>Stock Status</th>
+            </tr>
+          </thead>
+          <tbody id="inventoryTbody">
+            <!-- Rendered by admin.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Order Details Modal -->
+  <div class="admin-modal" id="orderDetailsModal">
+    <div class="admin-modal-card">
+      <button class="admin-modal-close" onclick="adminCtrl.closeModals()">✕</button>
+      <div id="orderDetailsContent"></div>
+    </div>
+  </div>
+
+  <!-- Add Product Modal -->
+  <div class="admin-modal" id="addProductModal">
+    <div class="admin-modal-card">
+      <button class="admin-modal-close" onclick="adminCtrl.closeModals()">✕</button>
+      <h3 style="font-family: var(--font-display); font-size: 1.4rem; text-transform: uppercase; margin-bottom: 20px;">
+        ADD NEW STREETWEAR T-SHIRT
+      </h3>
+
+      <form id="addProductForm" style="display: flex; flex-direction: column; gap: 16px;">
+        <div>
+          <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Product Name</label>
+          <input type="text" id="prodName" class="admin-input" style="width: 100%; margin-top: 6px;" placeholder="e.g. Cyberpunk Heavyweight Boxy Tee" required>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div>
+            <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Category</label>
+            <select id="prodCategory" class="admin-select" style="width: 100%; margin-top: 6px; padding: 10px;">
+              <option value="Oversized Tees">Oversized Tees</option>
+              <option value="Graphic Tees">Graphic Tees</option>
+              <option value="Acid Wash">Acid Wash</option>
+              <option value="Heavyweight Basics">Heavyweight Basics</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Price (৳)</label>
+            <input type="number" id="prodPrice" class="admin-input" style="width: 100%; margin-top: 6px;" placeholder="799" required>
+          </div>
+        </div>
+
+        <div>
+          <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Initial Stock by Size</label>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 6px;">
+            <div>
+              <span style="font-size: 0.75rem; color: var(--text-muted);">Size S</span>
+              <input type="number" id="stockS" class="admin-input" value="5" min="0" style="width: 100%;">
+            </div>
+            <div>
+              <span style="font-size: 0.75rem; color: var(--text-muted);">Size M</span>
+              <input type="number" id="stockM" class="admin-input" value="10" min="0" style="width: 100%;">
+            </div>
+            <div>
+              <span style="font-size: 0.75rem; color: var(--text-muted);">Size L</span>
+              <input type="number" id="stockL" class="admin-input" value="8" min="0" style="width: 100%;">
+            </div>
+            <div>
+              <span style="font-size: 0.75rem; color: var(--text-muted);">Size XL</span>
+              <input type="number" id="stockXL" class="admin-input" value="4" min="0" style="width: 100%;">
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="admin-btn admin-btn-primary" style="margin-top: 10px; justify-content: center; padding: 14px;">
+          SAVE PRODUCT TO CATALOG
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../frontend/js/products-data.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

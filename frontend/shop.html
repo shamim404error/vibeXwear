@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop All T-Shirts & Drops | VibeXwear</title>
+  <meta name="description" content="Browse our complete collection of oversized, heavyweight, graphic, and acid-washed T-shirts. Engineered for premium streetwear comfort.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/vibexwear-logo.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <span>⚡ DROP 04 LIVE NOW | <strong>FREE DELIVERY</strong> ON ORDERS OVER ৳2000 | CODE: <strong>VIBE10</strong></span>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <a href="index.html" class="brand-logo">
+        <img src="assets/images/vibexwear-logo.svg" alt="VibeXwear Logo">
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link active">Shop</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="nav-icon-btn open-cart-trigger" aria-label="Cart">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-badge-count">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-header">
+      <img src="assets/images/vibexwear-logo.svg" alt="VibeXwear" style="height: 28px;">
+      <button class="close-btn" id="closeMobileNav" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="active">Shop Catalog</a>
+      <a href="index.html#about">About Brand</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="cart.html">View Cart</a>
+      <a href="admin/index.html" style="color: var(--accent-primary); font-size: 0.95rem; margin-top: 20px;">⚡ Admin Portal</a>
+    </div>
+  </div>
+
+  <!-- Shop Header -->
+  <header class="container shop-header">
+    <span class="section-label">CATALOG & ARCHIVE</span>
+    <h1 class="section-title">ALL T-SHIRTS & STREETWEAR DROPS</h1>
+    <p class="section-description">
+      Engineered for maximum durability, heavyweight cotton structure, and contemporary relaxed drape.
+    </p>
+  </header>
+
+  <!-- Main Shop Layout -->
+  <main class="container section" style="padding-top: 20px;">
+    <div class="shop-layout">
+      
+      <!-- Filter Sidebar -->
+      <aside class="shop-sidebar">
+        
+        <!-- Search filter -->
+        <div>
+          <div class="filter-group-title">Search</div>
+          <div class="search-box">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="shopSearchInput" class="search-input" placeholder="Search by name, style...">
+          </div>
+        </div>
+
+        <!-- Categories filter -->
+        <div>
+          <div class="filter-group-title">Categories</div>
+          <div class="flex-col gap-1">
+            <div class="filter-option filter-cat-btn active" data-category="All">
+              <span>All Drops</span>
+              <span>(8)</span>
+            </div>
+            <div class="filter-option filter-cat-btn" data-category="Oversized Tees">
+              <span>Oversized Tees</span>
+              <span>(2)</span>
+            </div>
+            <div class="filter-option filter-cat-btn" data-category="Graphic Tees">
+              <span>Graphic Statement</span>
+              <span>(3)</span>
+            </div>
+            <div class="filter-option filter-cat-btn" data-category="Acid Wash">
+              <span>Acid Wash Series</span>
+              <span>(1)</span>
+            </div>
+            <div class="filter-option filter-cat-btn" data-category="Heavyweight Basics">
+              <span>Heavyweight Basics</span>
+              <span>(2)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Price Range Slider -->
+        <div>
+          <div class="filter-group-title">Max Price</div>
+          <div class="price-slider-wrap">
+            <input type="range" id="priceRangeSlider" class="price-range-input" min="600" max="1500" step="50" value="1500">
+            <div class="price-labels">
+              <span>৳600</span>
+              <span id="priceRangeVal" style="color: var(--accent-primary);">৳1500</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Size Filter -->
+        <div>
+          <div class="filter-group-title">Filter by Size</div>
+          <div class="size-filter-grid">
+            <div class="size-pill size-filter-pill" data-size="S">S</div>
+            <div class="size-pill size-filter-pill" data-size="M">M</div>
+            <div class="size-pill size-filter-pill" data-size="L">L</div>
+            <div class="size-pill size-filter-pill" data-size="XL">XL</div>
+            <div class="size-pill size-filter-pill" data-size="XXL">XXL</div>
+          </div>
+        </div>
+
+        <!-- Availability Filter -->
+        <div>
+          <div class="filter-group-title">Availability</div>
+          <label style="display: flex; align-items: center; gap: 10px; font-size: 0.88rem; color: var(--text-secondary); cursor: pointer;">
+            <input type="checkbox" id="inStockOnlyCheck" style="accent-color: var(--accent-primary); width: 16px; height: 16px;">
+            In Stock Only
+          </label>
+        </div>
+
+        <!-- Reset Button -->
+        <button id="resetFiltersBtn" class="btn btn-outline btn-sm btn-block">
+          CLEAR ALL FILTERS
+        </button>
+      </aside>
+
+      <!-- Products Content Area -->
+      <section style="flex: 1;">
+        <!-- Top Toolbar -->
+        <div class="shop-topbar">
+          <div id="shopResultsCount" style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em;">
+            Showing 8 Products
+          </div>
+
+          <div class="flex items-center gap-2">
+            <label for="shopSortSelect" style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted);">Sort By:</label>
+            <select id="shopSortSelect" class="sort-select">
+              <option value="featured">Featured Drops</option>
+              <option value="newest">Newest Arrivals</option>
+              <option value="bestseller">Best Sellers</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="shopProductsGrid">
+          <!-- Rendered dynamically via shop.js -->
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <img src="assets/images/vibexwear-logo.svg" alt="VibeXwear Logo" style="height: 32px;">
+          </a>
+          <p>
+            VibeXwear is a contemporary streetwear label focused on luxury heavyweight cotton essentials, modern silhouettes, and culture-driven aesthetics.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-title">Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop All</a>
+            <a href="cart.html">View Cart</a>
+            <a href="checkout.html">Checkout</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-title">Customer Support</h4>
+          <div class="footer-links">
+            <a href="javascript:void(0)" onclick="openSizeGuide()">Size & Fit Guide</a>
+            <a href="javascript:void(0)" onclick="cartEngine.showToast('Delivery: ৳100 nationwide. Free over ৳2000.', 'info')">Shipping & Delivery</a>
+            <a href="admin/index.html">Admin Dashboard</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-title">Connect</h4>
+          <div class="footer-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 VibeXwear. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-out Cart Drawer -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        YOUR CART
+      </div>
+      <button class="close-btn" id="closeCartDrawer" aria-label="Close cart drawer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="cart-drawer-items" id="cartDrawerItems"></div>
+    <div class="cart-drawer-footer" id="cartDrawerFooter">
+      <div class="drawer-subtotal-row">
+        <span>Subtotal</span>
+        <span class="drawer-subtotal-value" id="drawerSubtotal">৳0</span>
+      </div>
+      <div class="drawer-actions">
+        <a href="checkout.html" class="btn btn-primary btn-block">PROCEED TO CHECKOUT</a>
+        <a href="cart.html" class="btn btn-secondary btn-block">VIEW FULL CART</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Scripts -->
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>

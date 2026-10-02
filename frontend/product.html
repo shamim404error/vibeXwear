@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details | VibeXwear</title>
+  <meta name="description" content="Explore luxury heavyweight streetwear T-shirts with detailed fabric specifications, size guides, and instant local Cash on Delivery ordering.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/vibexwear-logo.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <span>⚡ DROP 04 LIVE NOW | <strong>FREE DELIVERY</strong> ON ORDERS OVER ৳2000 | CODE: <strong>VIBE10</strong></span>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <a href="index.html" class="brand-logo">
+        <img src="assets/images/vibexwear-logo.svg" alt="VibeXwear Logo">
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link active">Shop</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="nav-icon-btn open-cart-trigger" aria-label="Cart">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-badge-count">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-header">
+      <img src="assets/images/vibexwear-logo.svg" alt="VibeXwear" style="height: 28px;">
+      <button class="close-btn" id="closeMobileNav" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop Catalog</a>
+      <a href="cart.html">View Cart</a>
+      <a href="checkout.html">Checkout</a>
+      <a href="admin/index.html" style="color: var(--accent-primary); font-size: 0.95rem; margin-top: 20px;">⚡ Admin Portal</a>
+    </div>
+  </div>
+
+  <!-- Breadcrumbs -->
+  <div class="container" style="padding-top: 28px;">
+    <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); display: flex; align-items: center; gap: 8px;">
+      <a href="index.html" style="color: var(--text-secondary);">Home</a>
+      <span>/</span>
+      <a href="shop.html" style="color: var(--text-secondary);">Shop</a>
+      <span>/</span>
+      <a href="#" id="bcCategory" style="color: var(--text-secondary);">Oversized Tees</a>
+      <span>/</span>
+      <span id="bcProductName" style="color: var(--accent-primary);">Black Oversized Tee</span>
+    </div>
+  </div>
+
+  <!-- Main Product Detail -->
+  <main class="container">
+    <div class="product-detail-grid">
+      
+      <!-- Visual Gallery Column -->
+      <div class="detail-gallery">
+        <div class="detail-main-image">
+          <img id="detailMainImage" src="assets/images/tee-black-oversized.svg" alt="Product Image">
+        </div>
+        <div class="detail-thumbnails" id="detailThumbnails">
+          <!-- Thumbnail buttons rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- Info & Ordering Column -->
+      <div class="detail-info">
+        <div>
+          <span class="product-cat" id="detailCategory">OVERSIZED TEES</span>
+          <h1 class="detail-title" id="detailTitle">Black Oversized Heavyweight T-Shirt</h1>
+        </div>
+
+        <!-- Price Display -->
+        <div class="detail-price-box">
+          <span class="detail-price-main" id="detailPrice">৳799</span>
+          <span class="detail-price-old" id="detailOriginalPrice">৳999</span>
+          <span class="badge badge-discount" id="detailDiscountBadge">SAVE 20%</span>
+        </div>
+
+        <!-- Description -->
+        <p style="color: var(--text-secondary); font-size: 1.02rem; line-height: 1.6;" id="detailDescription">
+          The defining silhouette of modern streetwear. Engineered with high-density 240 GSM combed cotton for a structural drop-shoulder drape that maintains its shape wash after wash.
+        </p>
+
+        <!-- Color Selection -->
+        <div>
+          <div class="detail-variants-title">
+            <span>COLOR: <strong id="selectedColorLabel" style="color: var(--accent-primary);">Jet Black</strong></span>
+          </div>
+          <div class="color-picker-row" id="detailColorOptions">
+            <!-- Rendered by productDetailCtrl -->
+          </div>
+        </div>
+
+        <!-- Size Selection -->
+        <div>
+          <div class="detail-variants-title">
+            <span>SIZE: <strong id="selectedSizeLabel" style="color: var(--accent-primary);">L</strong></span>
+            <button onclick="openSizeGuide()" style="font-size: 0.75rem; color: var(--accent-primary); text-decoration: underline; font-weight: 700;">
+              📏 SIZE GUIDE
+            </button>
+          </div>
+          <div class="size-picker-row" id="detailSizeOptions">
+            <!-- Rendered by productDetailCtrl -->
+          </div>
+          <div class="stock-indicator-row" id="detailStockIndicator">
+            <!-- Stock status badge -->
+          </div>
+        </div>
+
+        <!-- Quantity & Action Buttons -->
+        <div>
+          <div style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; color: var(--text-muted);">
+            QUANTITY
+          </div>
+          <div class="detail-actions-row">
+            <div class="stepper-large">
+              <button onclick="productDetailCtrl.adjustQuantity(-1)" aria-label="Decrease quantity">-</button>
+              <span id="detailQty">1</span>
+              <button onclick="productDetailCtrl.adjustQuantity(1)" aria-label="Increase quantity">+</button>
+            </div>
+            <button id="detailAddToCartBtn" class="btn btn-primary" style="flex: 1;" onclick="productDetailCtrl.addToCart()">
+              ADD TO CART
+            </button>
+            <button id="detailBuyNowBtn" class="btn btn-secondary" style="flex: 1;" onclick="productDetailCtrl.buyNow()">
+              BUY NOW
+            </button>
+          </div>
+        </div>
+
+        <!-- Trust Features Strip -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 18px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md);">
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 0.82rem; font-weight: 700;">
+            <span style="color: var(--accent-primary); font-size: 1.1rem;">📦</span>
+            <span>Cash on Delivery</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 0.82rem; font-weight: 700;">
+            <span style="color: var(--accent-primary); font-size: 1.1rem;">🔄</span>
+            <span>7-Day Easy Exchange</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 0.82rem; font-weight: 700;">
+            <span style="color: var(--accent-primary); font-size: 1.1rem;">⚡</span>
+            <span>2-3 Days Fast Shipping</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 0.82rem; font-weight: 700;">
+            <span style="color: var(--accent-primary); font-size: 1.1rem;">🧵</span>
+            <span>Heavyweight Combed Cotton</span>
+          </div>
+        </div>
+
+        <!-- Fabric & Delivery Accordions -->
+        <div class="info-accordion">
+          <div class="accordion-item open">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+              <span>Fabric & Specifications</span>
+              <span>+</span>
+            </button>
+            <div class="accordion-body" id="detailFabricText">
+              240 GSM 100% Super-Combed Cotton. Bio-washed & silicon softened. 1x1 heavy ribbed crewneck collar with reinforced twin-needle stitching.
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+              <span>Delivery & Shipping Info</span>
+              <span>+</span>
+            </button>
+            <div class="accordion-body">
+              • Inside Dhaka: 24 - 48 hours (৳100 standard delivery)<br>
+              • Outside Dhaka: 48 - 72 hours across Bangladesh<br>
+              • Free Delivery on orders over ৳2000<br>
+              • Cash on Delivery available at your doorstep
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+              <span>Wash & Care Instructions</span>
+              <span>+</span>
+            </button>
+            <div class="accordion-body">
+              • Machine wash cold (inside out) with similar darks<br>
+              • Do not bleach or tumble dry high<br>
+              • Iron low inside-out; avoid direct iron on graphic prints<br>
+              • Dry in shade to maintain color depth
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Related Products Section -->
+  <section class="section" style="border-top: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-label">COMPLETE THE FIT</span>
+          <h2 class="section-title">RELATED DROPS</h2>
+        </div>
+        <a href="shop.html" class="btn btn-outline btn-sm">VIEW ALL</a>
+      </div>
+
+      <div class="products-grid" id="relatedProductsGrid">
+        <!-- Rendered by productDetailCtrl -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <img src="assets/images/vibexwear-logo.svg" alt="VibeXwear Logo" style="height: 32px;">
+          </a>
+          <p>
+            VibeXwear is a contemporary streetwear label focused on luxury heavyweight cotton essentials, modern silhouettes, and culture-driven aesthetics.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-title">Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop All</a>
+            <a href="cart.html">View Cart</a>
+            <a href="checkout.html">Checkout</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-title">Customer Support</h4>
+          <div class="footer-links">
+            <a href="javascript:void(0)" onclick="openSizeGuide()">Size & Fit Guide</a>
+            <a href="javascript:void(0)" onclick="cartEngine.showToast('Delivery: ৳100 nationwide. Free over ৳2000.', 'info')">Shipping & Delivery</a>
+            <a href="admin/index.html">Admin Dashboard</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-title">Connect</h4>
+          <div class="footer-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 VibeXwear. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-out Cart Drawer -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        YOUR CART
+      </div>
+      <button class="close-btn" id="closeCartDrawer" aria-label="Close cart drawer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="cart-drawer-items" id="cartDrawerItems"></div>
+    <div class="cart-drawer-footer" id="cartDrawerFooter">
+      <div class="drawer-subtotal-row">
+        <span>Subtotal</span>
+        <span class="drawer-subtotal-value" id="drawerSubtotal">৳0</span>
+      </div>
+      <div class="drawer-actions">
+        <a href="checkout.html" class="btn btn-primary btn-block">PROCEED TO CHECKOUT</a>
+        <a href="cart.html" class="btn btn-secondary btn-block">VIEW FULL CART</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Scripts -->
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/product.js"></script>
+</body>
+</html>

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VibeXwear | Wear Your Vibe - Modern Streetwear & Luxury Essentials</title>
+  <meta name="description" content="Premium heavyweight oversized T-shirts crafted for modern streetwear enthusiasts. 240 GSM combed cotton essentials designed for your everyday style.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/vibexwear-logo.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <span>⚡ DROP 04 LIVE NOW | <strong>FREE DELIVERY</strong> ON ORDERS OVER ৳2000 | USE CODE: <strong>VIBE10</strong> FOR 10% OFF</span>
+  </div>
+
+  <!-- Main Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <!-- Mobile Menu Toggle Button -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo">
+        <img src="assets/images/vibexwear-logo.svg" alt="VibeXwear Logo">
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+
+      <!-- Action Icons -->
+      <div class="nav-actions">
+        <a href="shop.html" class="nav-icon-btn" title="Search Products" aria-label="Search">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </a>
+
+        <!-- Cart Trigger Button -->
+        <button class="nav-icon-btn open-cart-trigger" id="openCartBtn" title="View Cart" aria-label="Shopping Cart">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-badge-count">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Navigation -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-header">
+      <img src="assets/images/vibexwear-logo.svg" alt="VibeXwear" style="height: 28px;">
+      <button class="close-btn" id="closeMobileNav" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="shop.html">Shop Catalog</a>
+      <a href="shop.html?cat=Oversized+Tees">Oversized Drops</a>
+      <a href="shop.html?cat=Graphic+Tees">Graphic Tees</a>
+      <a href="shop.html?cat=Acid+Wash">Acid Wash Collection</a>
+      <a href="#about">About Brand</a>
+      <a href="#contact">Contact</a>
+      <a href="admin/index.html" style="color: var(--accent-primary); font-size: 0.95rem; margin-top: 20px;">⚡ Admin Portal</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-tag">
+          <span class="tag-dot"></span>
+          NEW ARCHIVAL DROP // 2026
+        </div>
+        <h1 class="hero-title">
+          WEAR YOUR <span class="accent-text">VIBE.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Modern essentials designed for your everyday style. Engineered with premium 240 GSM combed cotton for the ultimate boxy, drop-shoulder drape.
+        </p>
+        <div class="hero-actions">
+          <a href="shop.html" class="btn btn-primary btn-lg">
+            SHOP NOW
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="#featured" class="btn btn-secondary btn-lg">
+            EXPLORE DROP
+          </a>
+        </div>
+        <div class="hero-specs">
+          <div class="spec-item">
+            <span class="spec-value">240+</span>
+            <span class="spec-label">GSM Heavyweight</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-value">100%</span>
+            <span class="spec-label">Combed Cotton</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-value">COD</span>
+            <span class="spec-label">Cash on Delivery</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Card Showcase -->
+      <div class="hero-visual">
+        <div class="hero-card-display">
+          <span class="hero-badge-float">HOT DROP</span>
+          <a href="product.html?id=vx-001">
+            <img src="assets/images/tee-black-oversized.svg" alt="Black Oversized Heavyweight T-Shirt" id="heroFeaturedImg">
+          </a>
+          <div style="margin-top: 18px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <span style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;">ICONIC ESSENTIAL</span>
+              <h3 style="font-size: 1.1rem; font-weight: 800; margin-top: 2px;">Black Oversized Tee</h3>
+            </div>
+            <div style="text-align: right;">
+              <span style="font-size: 1.25rem; font-weight: 900; color: var(--accent-primary);">৳799</span>
+              <div style="font-size: 0.8rem; color: var(--text-muted); text-decoration: line-through;">৳999</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Category Pills Quick Navigation -->
+  <section class="container" style="margin-top: -20px; position: relative; z-index: 10;">
+    <div class="category-pills">
+      <a href="shop.html" class="cat-pill active">All Drops</a>
+      <a href="shop.html?cat=Oversized+Tees" class="cat-pill">Oversized Silhouettes</a>
+      <a href="shop.html?cat=Graphic+Tees" class="cat-pill">Graphic Statement</a>
+      <a href="shop.html?cat=Acid+Wash" class="cat-pill">Vintage Acid Wash</a>
+      <a href="shop.html?cat=Heavyweight+Basics" class="cat-pill">Heavyweight Basics</a>
+    </div>
+  </section>
+
+  <!-- Featured Products Section -->
+  <section class="section" id="featured">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-label">CURATED SELECTION</span>
+          <h2 class="section-title">FEATURED PRODUCTS</h2>
+        </div>
+        <a href="shop.html" class="btn btn-outline btn-sm">VIEW ALL (8)</a>
+      </div>
+
+      <div class="products-grid" id="featuredProductsGrid">
+        <!-- Rendered via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Promotional High-GSM Breakdown Banner -->
+  <section class="container">
+    <div class="promo-banner">
+      <div class="promo-grid">
+        <div>
+          <span class="promo-tag">FABRIC ENGINEERING</span>
+          <h2 class="promo-title">240 GSM HEAVYWEIGHT COTTON. ZERO COMPROMISE.</h2>
+          <p class="promo-desc">
+            Standard high-street tees are 150-180 GSM and lose shape quickly. VibeXwear silhouettes use dense 240-260 GSM compact yarn combed cotton with pre-shrunk silicone washing for that signature high-end boxy drop.
+          </p>
+          <div class="features-list">
+            <div class="feature-item">
+              <span class="feature-icon">✦</span>
+              <span>Pre-Shrunk & Bio-Washed</span>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">✦</span>
+              <span>1x1 High-Density Rib Collar</span>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">✦</span>
+              <span>Twin-Needle Shoulder Seams</span>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">✦</span>
+              <span>Fade-Resistant Reactive Dyeing</span>
+            </div>
+          </div>
+          <a href="shop.html" class="btn btn-primary">EXPLORE HEAVYWEIGHT TEES</a>
+        </div>
+        <div style="display: flex; justify-content: center;">
+          <img src="assets/images/tee-acid-washed.svg" alt="Heavyweight Cotton T-shirt" style="max-height: 420px; border-radius: var(--radius-lg); border: 1px solid var(--border-subtle);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Sellers Section -->
+  <section class="section" id="bestsellers">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-label">COMMUNITY FAVORITES</span>
+          <h2 class="section-title">BEST SELLERS</h2>
+          <p class="section-description">The pieces our community wears on repeat. Fast-moving sizes with limited restocks.</p>
+        </div>
+        <a href="shop.html?sort=bestseller" class="btn btn-outline btn-sm">SHOP BESTSELLERS</a>
+      </div>
+
+      <div class="products-grid" id="bestSellersGrid">
+        <!-- Rendered via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- New Arrivals Section -->
+  <section class="section" id="newarrivals" style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-label">FRESH OFF THE PRODUCTION LINE</span>
+          <h2 class="section-title">NEW ARRIVALS</h2>
+          <p class="section-description">Avant-garde cuts, experimental graphic placements, and minimalist staples.</p>
+        </div>
+        <a href="shop.html?sort=newest" class="btn btn-outline btn-sm">VIEW ALL NEW</a>
+      </div>
+
+      <div class="products-grid" id="newArrivalsGrid">
+        <!-- Rendered via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand Story Section -->
+  <section class="section story-section" id="about">
+    <div class="container story-grid">
+      <div class="story-content">
+        <span class="section-label">OUR MANIFESTO</span>
+        <h2>CRAFTED FOR THE CULTURE. ROOTED IN MODERN STREETWEAR.</h2>
+        <p>
+          VibeXwear was founded on a simple principle: clothing is not just fabric—it is your personal frequency. We were tired of thin, ill-fitting tees with uninspired graphics and high price tags.
+        </p>
+        <p>
+          Every garment we engineer is patterned from scratch to provide the ideal boxy, drop-shoulder drape favored by contemporary streetwear connoisseurs. We test our GSM weights, collar retention, and screenprints rigorously before any drop leaves our studio.
+        </p>
+        <div style="margin-top: 30px;">
+          <a href="shop.html" class="btn btn-secondary">JOIN THE MOVEMENT</a>
+        </div>
+      </div>
+      <div class="story-visual">
+        <div class="manifesto-box">
+          <h4>01 / ARCHITECTURAL FIT</h4>
+          <p>Drop-shoulder cuts with broader chest room and structured hem lengths designed specifically for modern silhouettes.</p>
+        </div>
+        <div class="manifesto-box">
+          <h4>02 / ARTISANAL DENSITY</h4>
+          <p>High-density 240 to 280 GSM fabrics sourced from premium long-staple combed cotton yarns.</p>
+        </div>
+        <div class="manifesto-box">
+          <h4>03 / HONEST PRICING</h4>
+          <p>Direct-to-consumer luxury streetwear without middleman markups or inflated hype costs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Reviews Section -->
+  <section class="section" id="reviews">
+    <div class="container">
+      <div class="section-header" style="text-align: center; justify-content: center; flex-direction: column;">
+        <span class="section-label">COMMUNITY VOICES</span>
+        <h2 class="section-title">WHAT OUR CUSTOMERS SAY</h2>
+        <p class="section-description" style="margin: 8px auto 0;">Over 1,200+ verified streetwear lovers across Bangladesh wear VibeXwear daily.</p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">
+            "The 240 GSM weight is insane for ৳799. The drop shoulder fits exactly like high-end international streetwear brands. The collar stays crisp even after 5 washes."
+          </p>
+          <div class="review-author">
+            <div class="author-avatar">TR</div>
+            <div>
+              <div class="author-name">Tanvir Rahman</div>
+              <div class="verified-badge">✓ Verified Buyer (Dhaka)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">
+            "Ordered the Acid Washed Vintage Tee via Cash on Delivery. Delivered to Chittagong in 2 days. The distressed wash effect is 10/10. Definitely ordering more."
+          </p>
+          <div class="review-author">
+            <div class="author-avatar">SC</div>
+            <div>
+              <div class="author-name">Shadman Chowdhury</div>
+              <div class="verified-badge">✓ Verified Buyer (Chittagong)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">
+            "The Raw Bone Boxy tee has the cleanest minimal fit. It's thick, soft, breathable, and doesn't stick to the body in humid weather. Huge fan of VibeXwear."
+          </p>
+          <div class="review-author">
+            <div class="author-avatar">NA</div>
+            <div>
+              <div class="author-name">Nafis Ahmed</div>
+              <div class="verified-badge">✓ Verified Buyer (Sylhet)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter VIP Section -->
+  <section class="container" id="contact">
+    <div class="newsletter-section">
+      <span class="section-label">NEVER MISS A DROP</span>
+      <h2 class="section-title" style="font-size: 2.2rem; margin-top: 6px;">GET 10% OFF YOUR FIRST ORDER</h2>
+      <p style="color: var(--text-secondary); max-width: 480px; margin: 12px auto 0; font-size: 0.95rem;">
+        Subscribe to get exclusive early access to secret drops, archival re-releases, and VIP promo codes.
+      </p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+        <button type="submit" class="btn btn-primary">SUBSCRIBE</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Professional Streetwear Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <img src="assets/images/vibexwear-logo.svg" alt="VibeXwear Logo" style="height: 32px;">
+          </a>
+          <p>
+            VibeXwear is a contemporary streetwear label focused on luxury heavyweight cotton essentials, modern silhouettes, and culture-driven aesthetics.
+          </p>
+          <div class="footer-badges">
+            <div class="footer-badge-item">
+              <span>⚡ Fast Delivery</span>
+            </div>
+            <div class="footer-badge-item">
+              <span>🛡️ Cash on Delivery</span>
+            </div>
+            <div class="footer-badge-item">
+              <span>🧵 100% Combed Cotton</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop All</a>
+            <a href="#about">About Brand</a>
+            <a href="#contact">Contact</a>
+            <a href="cart.html">Shopping Cart</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Customer Support</h4>
+          <div class="footer-links">
+            <a href="javascript:void(0)" onclick="openSizeGuide()">Size & Fit Guide</a>
+            <a href="checkout.html">Checkout & Payment</a>
+            <a href="javascript:void(0)" onclick="cartEngine.showToast('Delivery: ৳100 nationwide. Free over ৳2000.', 'info')">Shipping Policy</a>
+            <a href="javascript:void(0)" onclick="cartEngine.showToast('7-day hassle free replacement policy.', 'info')">Returns & Exchange</a>
+            <a href="admin/index.html">Admin Portal</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Connect</h4>
+          <div class="footer-links">
+            <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a>
+            <a href="mailto:support@vibexwear.com">support@vibexwear.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 VibeXwear. All rights reserved.
+        </div>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">
+          Designed & Engineered with modern streetwear standards.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-out Cart Drawer -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        YOUR CART
+      </div>
+      <button class="close-btn" id="closeCartDrawer" aria-label="Close cart drawer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Scrollable Items Container -->
+    <div class="cart-drawer-items" id="cartDrawerItems">
+      <!-- Rendered dynamically via CartEngine -->
+    </div>
+
+    <!-- Drawer Footer / Summary -->
+    <div class="cart-drawer-footer" id="cartDrawerFooter">
+      <div class="drawer-subtotal-row">
+        <span>Subtotal</span>
+        <span class="drawer-subtotal-value" id="drawerSubtotal">৳0</span>
+      </div>
+      <div class="drawer-note">
+        Taxes and delivery fee calculated at checkout.
+      </div>
+      <div class="drawer-actions">
+        <a href="checkout.html" class="btn btn-primary btn-block">PROCEED TO CHECKOUT</a>
+        <a href="cart.html" class="btn btn-secondary btn-block">VIEW FULL CART</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Script Inclusions -->
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Home Page Initializer
+    document.addEventListener('DOMContentLoaded', () => {
+      const featuredGrid = document.getElementById('featuredProductsGrid');
+      const bestSellersGrid = document.getElementById('bestSellersGrid');
+      const newArrivalsGrid = document.getElementById('newArrivalsGrid');
+
+      if (featuredGrid) {
+        const featured = PRODUCTS_DATA.filter(p => p.featured).slice(0, 4);
+        featuredGrid.innerHTML = featured.map(createProductCardHTML).join('');
+      }
+
+      if (bestSellersGrid) {
+        const bestSellers = PRODUCTS_DATA.filter(p => p.bestSeller).slice(0, 4);
+        bestSellersGrid.innerHTML = bestSellers.map(createProductCardHTML).join('');
+      }
+
+      if (newArrivalsGrid) {
+        const newArrivals = PRODUCTS_DATA.filter(p => p.newArrival).slice(0, 4);
+        newArrivalsGrid.innerHTML = newArrivals.map(createProductCardHTML).join('');
+      }
+    });
+  </script>
+</body>
+</html>

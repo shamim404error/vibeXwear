@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmed | VibeXwear</title>
+  <meta name="description" content="Your VibeXwear order has been successfully placed. Order ID and details.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/vibexwear-logo.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <span>⚡ DROP 04 LIVE NOW | <strong>FREE DELIVERY</strong> ON ORDERS OVER ৳2000 | CODE: <strong>VIBE10</strong></span>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/images/vibexwear-logo.svg" alt="VibeXwear Logo">
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Confirmation Screen -->
+  <main class="container">
+    <div class="confirmation-wrapper">
+      
+      <!-- Animated Check Icon -->
+      <div class="conf-check-icon">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+
+      <span class="section-label">PAYMENT: CASH ON DELIVERY</span>
+      <h1 class="conf-title">ORDER PLACED SUCCESSFULLY</h1>
+      <p style="color: var(--text-secondary); max-width: 480px; margin: 0 auto 20px; font-size: 0.95rem;">
+        Thank you for shopping with VibeXwear! We are preparing your heavyweight pieces for dispatch. Our delivery partner will contact you upon arrival.
+      </p>
+
+      <div class="conf-order-id-badge" id="confOrderIdDisplay">
+        #VX1001
+      </div>
+
+      <!-- Order Details Summary Table -->
+      <div class="conf-summary-table">
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 12px; margin-bottom: 12px;">
+          <span style="color: var(--text-muted); font-size: 0.85rem;">Status</span>
+          <span class="badge-stock in-stock" id="confOrderStatus">Pending Confirmation</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 12px; margin-bottom: 12px;">
+          <span style="color: var(--text-muted); font-size: 0.85rem;">Customer Name</span>
+          <strong id="confCustomerName">Rahim Chowdhury</strong>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 12px; margin-bottom: 12px;">
+          <span style="color: var(--text-muted); font-size: 0.85rem;">Phone</span>
+          <strong id="confCustomerPhone">01712345678</strong>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 12px; margin-bottom: 12px;">
+          <span style="color: var(--text-muted); font-size: 0.85rem;">Delivery Destination</span>
+          <span id="confCustomerAddress" style="text-align: right; max-width: 280px; font-size: 0.88rem; font-weight: 600;">Mirpur, Dhaka</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 12px; margin-bottom: 12px;">
+          <span style="color: var(--text-muted); font-size: 0.85rem;">Payment Method</span>
+          <strong style="color: var(--accent-primary);">Cash on Delivery (COD)</strong>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; padding-top: 6px; font-size: 1.2rem; font-weight: 900;">
+          <span>Total Amount</span>
+          <span style="color: var(--accent-primary);" id="confTotalAmount">৳1698</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+        <button class="btn btn-primary" onclick="openOrderTracker()">
+          TRACK ORDER
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+        <a href="shop.html" class="btn btn-secondary">
+          CONTINUE SHOPPING
+        </a>
+      </div>
+
+      <div style="margin-top: 24px;">
+        <a href="../admin/index.html" style="font-size: 0.82rem; color: var(--accent-primary); text-decoration: underline;">
+          ⚡ View this order in Admin Dashboard
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Track Order Modal -->
+  <div class="modal-overlay" id="trackOrderModal">
+    <div class="modal-dialog" style="max-width: 520px; padding: 32px;">
+      <button class="close-btn modal-close-btn" onclick="document.getElementById('trackOrderModal').classList.remove('open'); document.body.style.overflow='';">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <span class="section-label">LIVE STATUS</span>
+      <h3 style="font-family: var(--font-display); font-size: 1.4rem; text-transform: uppercase; margin-bottom: 24px;">
+        TRACKING ORDER <span id="trackModalOrderId">#VX1001</span>
+      </h3>
+
+      <!-- Tracking Timeline -->
+      <div style="display: flex; flex-direction: column; gap: 20px; position: relative; padding-left: 28px; border-left: 2px solid var(--accent-primary);">
+        <div style="position: relative;">
+          <div style="position: absolute; left: -36px; top: 0; width: 14px; height: 14px; border-radius: 50%; background: var(--accent-primary); box-shadow: 0 0 10px var(--accent-primary);"></div>
+          <div style="font-weight: 800; font-size: 0.95rem; color: var(--text-primary);">Order Placed</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted);">Your order has been recorded into our database.</div>
+        </div>
+
+        <div style="position: relative;">
+          <div style="position: absolute; left: -36px; top: 0; width: 14px; height: 14px; border-radius: 50%; background: var(--bg-surface-elevated); border: 2px solid var(--accent-primary);"></div>
+          <div style="font-weight: 800; font-size: 0.95rem; color: var(--text-secondary);">Order Confirmed</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted);">Admin verifies item inventory and courier slot.</div>
+        </div>
+
+        <div style="position: relative;">
+          <div style="position: absolute; left: -36px; top: 0; width: 14px; height: 14px; border-radius: 50%; background: var(--bg-surface-elevated); border: 2px solid var(--border-medium);"></div>
+          <div style="font-weight: 800; font-size: 0.95rem; color: var(--text-muted);">Processing & Packaging</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted);">Quality inspection and sealed in eco-streetwear packaging.</div>
+        </div>
+
+        <div style="position: relative;">
+          <div style="position: absolute; left: -36px; top: 0; width: 14px; height: 14px; border-radius: 50%; background: var(--bg-surface-elevated); border: 2px solid var(--border-medium);"></div>
+          <div style="font-weight: 800; font-size: 0.95rem; color: var(--text-muted);">Shipped / Out for Delivery</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted);">Assigned to local courier for doorstep delivery.</div>
+        </div>
+
+        <div style="position: relative;">
+          <div style="position: absolute; left: -36px; top: 0; width: 14px; height: 14px; border-radius: 50%; background: var(--bg-surface-elevated); border: 2px solid var(--border-medium);"></div>
+          <div style="font-weight: 800; font-size: 0.95rem; color: var(--text-muted);">Delivered</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted);">Package handed over & cash collected.</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 30px; text-align: center;">
+        <button class="btn btn-secondary btn-block" onclick="document.getElementById('trackOrderModal').classList.remove('open'); document.body.style.overflow='';">
+          CLOSE
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const paramOrderId = urlParams.get('orderId');
+
+      let order = null;
+      try {
+        const latest = localStorage.getItem('vibexwear_latest_order');
+        if (latest) order = JSON.parse(latest);
+      } catch (e) {
+        order = null;
+      }
+
+      if (order && (order.orderId === paramOrderId || !paramOrderId)) {
+        document.getElementById('confOrderIdDisplay').textContent = `#${order.orderId}`;
+        document.getElementById('trackModalOrderId').textContent = `#${order.orderId}`;
+        document.getElementById('confCustomerName').textContent = order.customer.name;
+        document.getElementById('confCustomerPhone').textContent = order.customer.phone;
+        document.getElementById('confCustomerAddress').textContent = `${order.customer.area}, ${order.customer.district}`;
+        document.getElementById('confTotalAmount').textContent = `৳${order.total}`;
+        document.getElementById('confOrderStatus').textContent = order.status || 'Pending';
+      } else if (paramOrderId) {
+        document.getElementById('confOrderIdDisplay').textContent = `#${paramOrderId}`;
+        document.getElementById('trackModalOrderId').textContent = `#${paramOrderId}`;
+      }
+    });
+
+    function openOrderTracker() {
+      const modal = document.getElementById('trackOrderModal');
+      if (modal) {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 50" width="240" height="50">
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#d8ff00"/>
+    </linearGradient>
+  </defs>
+  <!-- Geometric Icon -->
+  <g transform="translate(6, 6)">
+    <polygon points="0,0 24,0 36,38 12,38" fill="#d8ff00"/>
+    <polygon points="18,0 42,0 30,38 6,38" fill="#ffffff" opacity="0.9"/>
+    <polygon points="12,12 28,12 22,30 6,30" fill="#0c0d0f"/>
+  </g>
+  <!-- Typographic Wordmark -->
+  <text x="56" y="32" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="24" letter-spacing="1">VIBE<tspan fill="#d8ff00">X</tspan>WEAR</text>
+</svg>
