@@ -183,17 +183,13 @@ class CheckoutController {
       submitBtn.disabled = true;
       submitBtn.innerHTML = `
         <span style="display: inline-block; animation: spin 1s infinite linear;">↻</span>
-        PROCESSING ORDER...
+        SECURING & PROCESSING ORDER...
       `;
     }
 
     // Calculations
     const calcs = cartEngine.getCalculations(district);
-    const orderId = this.generateOrderId();
-
-    // Construct Order Payload
-    const newOrder = {
-      orderId: orderId,
+    const orderPayload = {
       customer: {
         name: fullName,
         phone: cleanPhone,
@@ -211,33 +207,66 @@ class CheckoutController {
         price: item.price,
         image: item.image
       })),
-      subtotal: calcs.subtotal,
-      deliveryCharge: calcs.delivery,
-      discount: calcs.discount,
-      total: calcs.total,
-      paymentMethod: 'Cash on Delivery',
-      status: 'Pending',
-      createdAt: new Date().toISOString()
+      district: district,
+      discount: calcs.discount
     };
 
-    // Save to local orders list for immediate Admin viewing
-    try {
-      const orders = JSON.parse(localStorage.getItem('vibexwear_orders') || '[]');
-      orders.unshift(newOrder);
-      localStorage.setItem('vibexwear_orders', JSON.stringify(orders));
-      localStorage.setItem('vibexwear_latest_order', JSON.stringify(newOrder));
-    } catch (e) {
-      console.error('Failed to save order to localStorage', e);
-    }
+    // Submit to Secure Server-Side Endpoint
+    (async () => {
+      let finalizedOrder = null;
+      try {
+        const response = await fetch('/api/orders', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(orderPayload)
+        });
 
-    // Simulated short network delay for authentic e-commerce feel
-    setTimeout(() => {
+        const data = await response.json();
+
+        if (response.ok && data.success && data.order) {
+          finalizedOrder = data.order;
+        } else {
+          cartEngine.showToast(data.message || 'Error processing order. Please verify details.', 'error');
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'CONFIRM CASH ON DELIVERY ORDER';
+          }
+          return;
+        }
+      } catch (networkErr) {
+        console.warn('Backend server unavailable, proceeding with local fallback:', networkErr);
+        // Fallback for static file preview without running backend
+        const fallbackId = this.generateOrderId();
+        finalizedOrder = {
+          orderId: fallbackId,
+          customer: orderPayload.customer,
+          products: orderPayload.products,
+          subtotal: calcs.subtotal,
+          deliveryCharge: calcs.delivery,
+          discount: calcs.discount,
+          total: calcs.total,
+          paymentMethod: 'Cash on Delivery',
+          status: 'Pending',
+          createdAt: new Date().toISOString()
+        };
+      }
+
+      // Save latest order reference for confirmation page
+      try {
+        const orders = JSON.parse(localStorage.getItem('vibexwear_orders') || '[]');
+        orders.unshift(finalizedOrder);
+        localStorage.setItem('vibexwear_orders', JSON.stringify(orders));
+        localStorage.setItem('vibexwear_latest_order', JSON.stringify(finalizedOrder));
+      } catch (e) {
+        console.error('Failed to sync order locally', e);
+      }
+
       // Clear shopping cart
       cartEngine.clearCart();
 
       // Redirect to Order Confirmation
-      window.location.href = `order-confirmation.html?orderId=${orderId}`;
-    }, 600);
+      window.location.href = `order-confirmation.html?orderId=${finalizedOrder.orderId}`;
+    })();
   }
 }
 

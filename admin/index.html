@@ -35,12 +35,16 @@
     </nav>
 
     <div class="admin-sidebar-footer">
+      <button class="admin-nav-item" id="adminSidebarLogoutBtn" onclick="adminCtrl.logout()" style="width: 100%; border: none; background: rgba(239, 68, 68, 0.12); color: var(--status-cancelled); cursor: pointer; margin-bottom: 10px; border-radius: 8px; justify-content: flex-start;">
+        <span>🔒</span>
+        <span>Secure Logout</span>
+      </button>
       <a href="../frontend/index.html" target="_blank" class="admin-nav-item" style="color: var(--accent-lime);">
         <span>↗</span>
         <span>View Live Store</span>
       </a>
       <div style="font-size: 0.72rem; color: var(--text-dim);">
-        VibeXwear Admin v1.0.0<br>Local Environment
+        VibeXwear Admin v1.0.0<br>JWT Authenticated Area
       </div>
     </div>
   </aside>
@@ -55,12 +59,15 @@
         <p>Real-time order fulfillment, inventory monitoring, and product management.</p>
       </div>
 
-      <div class="admin-user-profile">
+      <div class="admin-user-profile" style="display: flex; align-items: center; gap: 14px;">
         <div class="admin-avatar">AD</div>
         <div>
           <div style="font-size: 0.85rem; font-weight: 800;">Admin User</div>
           <div style="font-size: 0.72rem; color: var(--accent-lime);">Super Admin</div>
         </div>
+        <button class="admin-btn admin-btn-secondary" onclick="adminCtrl.logout()" style="font-size: 0.75rem; padding: 6px 12px; border-color: rgba(239, 68, 68, 0.4); color: var(--status-cancelled); cursor: pointer;">
+          🔒 Logout
+        </button>
       </div>
     </header>
 
@@ -316,6 +323,45 @@
           SAVE PRODUCT TO CATALOG
         </button>
       </form>
+    </div>
+  </div>
+
+  <!-- Security: Admin Authentication Gate Overlay -->
+  <div id="adminAuthGate" class="admin-auth-gate" style="display: none;">
+    <div class="admin-auth-card">
+      <div class="admin-auth-header">
+        <img src="../frontend/assets/images/vibexwear-logo.svg" alt="VibeXwear Logo" style="height: 36px; margin-bottom: 16px;">
+        <h2>ADMIN SECURITY CLEARANCE</h2>
+        <p>Restricted access area. End-to-end JWT authenticated session required.</p>
+      </div>
+
+      <div id="adminLoginAlert" class="admin-login-alert" style="display: none;"></div>
+
+      <form id="adminLoginForm">
+        <div class="form-group" style="margin-bottom: 16px; text-align: left;">
+          <label for="adminEmailInput" style="display: block; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 6px;">
+            Admin Email
+          </label>
+          <input type="email" id="adminEmailInput" class="admin-input" style="width: 100%; padding: 12px;" placeholder="admin@vibexwear.com" autocomplete="username" required>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 24px; text-align: left;">
+          <label for="adminPasswordInput" style="display: block; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 6px;">
+            Password
+          </label>
+          <input type="password" id="adminPasswordInput" class="admin-input" style="width: 100%; padding: 12px;" placeholder="••••••••••••" autocomplete="current-password" required>
+        </div>
+
+        <button type="submit" id="adminLoginBtn" class="admin-btn admin-btn-primary" style="width: 100%; justify-content: center; padding: 14px; font-weight: 800; letter-spacing: 0.5px;">
+          AUTHENTICATE & UNLOCK ⚡
+        </button>
+      </form>
+
+      <div class="admin-auth-footer">
+        <span>🛡️ Rate-Limited & Encrypted</span>
+        <span>•</span>
+        <a href="../frontend/index.html" style="color: var(--text-muted); text-decoration: underline;">Back to Storefront</a>
+      </div>
     </div>
   </div>
 
